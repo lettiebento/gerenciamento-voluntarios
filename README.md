@@ -125,3 +125,8 @@ src/main/resources
 ├── static/css      # estilos da aplicação
 ├── templates       # páginas Thymeleaf
 └── application.properties
+
+---
+
+## 👩‍💻 Autoria
+Aluna: Letícia Bento Pinto
