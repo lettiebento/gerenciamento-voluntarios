@@ -1,155 +1,127 @@
-# Extensão em Ação — Gerenciamento de Voluntários
+# 🤝 Extensão em Ação — Gestão de Voluntários
 
-Sistema web desenvolvido em **Java com orientação a objetos**, arquitetura **MVC**, banco de dados relacional e interface responsiva. O projeto permite controlar voluntários, atividades, participações e carga horária de um projeto de extensão universitário.
+Desenvolvido como parte da avaliação da disciplina de **Programação Orientada a Objetos 2**, do curso de **Engenharia de Software da UTFPR — Campus Cornélio Procópio**, o projeto **Extensão em Ação** é um sistema web criado para apoiar o gerenciamento de voluntários e atividades de extensão.
 
-## Tecnologias
+A aplicação foi desenvolvida em **Java com Spring Boot**, utilizando arquitetura em camadas, persistência em banco de dados relacional e interfaces web responsivas. O sistema permite que coordenadores organizem voluntários, atividades, participações e cargas horárias, enquanto os voluntários acompanham seu próprio progresso.
 
-- Java 17
-- Spring Boot 3
-- Spring MVC
-- Thymeleaf
-- Spring Data JPA
-- Banco H2 persistido em arquivo
-- Bean Validation
-- HTML e CSS próprios
-- Maven
+---
 
-## Funcionalidades
+## 🎯 Objetivos
+
+- Centralizar o cadastro de voluntários e atividades de extensão.
+- Registrar participações, presença e horas realizadas.
+- Facilitar o acompanhamento da carga horária de cada voluntário.
+- Disponibilizar um painel com indicadores gerais do projeto.
+- Permitir que cada voluntário consulte suas atividades e seu progresso.
+- Indicar automaticamente quando o participante atinge a carga horária necessária para certificação.
+
+---
+
+## 🛠️ Ferramentas e tecnologias utilizadas
+
+- **Java 17** — linguagem principal do projeto.
+- **Spring Boot 3.3.5** — configuração e execução da aplicação.
+- **Spring MVC** — tratamento das requisições e organização dos controladores.
+- **Thymeleaf** — renderização das páginas HTML.
+- **Spring Data JPA** — persistência e acesso aos dados.
+- **H2 Database** — banco de dados relacional persistido em arquivo.
+- **Bean Validation** — validação dos dados dos formulários.
+- **HTML e CSS** — construção e estilização das interfaces.
+- **Maven** — gerenciamento das dependências.
+- **Visual Studio Code** — ambiente utilizado no desenvolvimento.
+- **Git e GitHub** — versionamento e disponibilização do código-fonte.
+- **Microsoft Word** — elaboração da documentação acadêmica.
+
+---
+
+## 📌 Metodologia
+
+O desenvolvimento foi realizado de forma incremental. Inicialmente, foram definidos o problema, os usuários, os requisitos e as regras de negócio. Em seguida, foram elaborados os diagramas UML e o modelo do banco de dados.
+
+A implementação foi organizada em camadas, separando entidades, repositórios, serviços, controladores e interfaces. Após a criação da estrutura principal, foram implementadas as funcionalidades de autenticação, cadastros, participações, relatórios e acompanhamento da carga horária.
+
+Por fim, o sistema foi executado localmente e suas principais funcionalidades foram verificadas por meio de testes manuais.
+
+---
+
+## 🧩 Construção do sistema
+
+### ✅ Requisitos funcionais
+
+| Identificador | Descrição | Prioridade | Implementado |
+|---|---|---:|:---:|
+| RF01 | O sistema deve permitir a autenticação por e-mail e senha. | Alta | ✅ |
+| RF02 | O sistema deve identificar o perfil do usuário autenticado. | Alta | ✅ |
+| RF03 | O coordenador deve visualizar um painel com indicadores do projeto. | Média | ✅ |
+| RF04 | O coordenador deve realizar o CRUD de voluntários. | Alta | ✅ |
+| RF05 | O coordenador deve realizar o CRUD de atividades. | Alta | ✅ |
+| RF06 | O coordenador deve registrar participações em atividades. | Alta | ✅ |
+| RF07 | O sistema deve impedir a duplicidade de participação do mesmo voluntário na mesma atividade. | Alta | ✅ |
+| RF08 | O coordenador deve registrar presença e horas realizadas. | Alta | ✅ |
+| RF09 | O sistema deve calcular a carga horária acumulada dos voluntários. | Alta | ✅ |
+| RF10 | O sistema deve gerar um relatório de carga horária. | Média | ✅ |
+| RF11 | O sistema deve indicar a elegibilidade para certificado. | Média | ✅ |
+| RF12 | O voluntário deve consultar suas atividades, horas e progresso. | Alta | ✅ |
+
+### ⚙️ Requisitos não funcionais
+
+| Identificador | Descrição | Tipo | Implementado |
+|---|---|---|:---:|
+| RNF01 | O sistema deve ser implementado em Java 17. | Implementação | ✅ |
+| RNF02 | A aplicação deve seguir uma arquitetura em camadas baseada em MVC. | Arquitetura | ✅ |
+| RNF03 | Os dados devem ser armazenados em banco relacional persistente. | Armazenamento | ✅ |
+| RNF04 | As senhas não devem ser armazenadas em texto puro. | Segurança | ✅ |
+| RNF05 | Os formulários devem validar campos obrigatórios e dados inválidos. | Confiabilidade | ✅ |
+| RNF06 | A interface deve ser compreensível e adaptável a diferentes telas. | Usabilidade | ✅ |
+| RNF07 | O código-fonte deve ser disponibilizado em um repositório Git. | Manutenção | ✅ |
+| RNF08 | O sistema deve restringir o acesso conforme o perfil autenticado. | Segurança | ✅ |
+
+---
+
+## 👥 Perfis do sistema
 
 ### Coordenador
 
-- Login com sessão e senha protegida por PBKDF2.
-- Dashboard com indicadores do projeto.
-- CRUD completo de voluntários.
-- CRUD completo de atividades.
-- Registro, edição e exclusão de participações.
-- Controle de presença e horas realizadas.
-- Validação para impedir participação duplicada.
-- Relatório de carga horária por voluntário.
-- Indicação automática de aptidão para certificado.
+O perfil de coordenador possui acesso às funções administrativas:
+
+- dashboard com indicadores gerais;
+- gerenciamento de voluntários;
+- gerenciamento de atividades;
+- registro e edição de participações;
+- controle de presença e horas;
+- consulta de relatórios;
+- verificação de elegibilidade para certificado.
 
 ### Voluntário
 
-- Login individual.
-- Visualização das atividades em que participou.
-- Consulta da carga horária total.
-- Acompanhamento do progresso para certificação.
+O perfil de voluntário possui acesso individual:
 
-## Arquitetura MVC
+- visualização das atividades realizadas;
+- consulta da carga horária acumulada;
+- acompanhamento do progresso;
+- verificação da situação para certificação.
+
+---
+
+## 🏗️ Arquitetura e boas práticas
+
+### MVC e separação em camadas
+
+O projeto utiliza uma organização inspirada no padrão **Model-View-Controller**, complementada pelas camadas de serviço e repositório.
 
 ```text
 src/main/java/br/edu/extensao/voluntarios
-├── config          # inicialização do banco e configuração web
-├── controller      # recebe requisições e escolhe as views
-├── dto             # formulários e objetos de transferência
-├── exception       # exceções de regra de negócio
-├── interceptor     # autenticação e autorização por perfil
-├── model           # entidades de domínio/JPA
+├── config          # configuração web e dados iniciais
+├── controller      # tratamento das requisições
+├── dto             # objetos utilizados nos formulários
+├── exception       # exceções e regras de negócio
+├── interceptor     # autenticação e autorização
+├── model           # entidades do domínio
 ├── repository      # acesso ao banco de dados
 ├── service         # regras de negócio
-└── util            # utilitários, como hash de senha
+└── util            # utilitários, como proteção de senhas
 
 src/main/resources
-├── static/css      # estilo da aplicação
-├── templates       # views Thymeleaf
+├── static/css      # estilos da aplicação
+├── templates       # páginas Thymeleaf
 └── application.properties
-```
-
-Fluxo principal:
-
-```text
-View → Controller → Service → Repository → Banco de Dados
-```
-
-## Modelo do banco
-
-```mermaid
-erDiagram
-    COORDENADORES {
-        bigint id PK
-        varchar nome
-        varchar email UK
-        varchar senha_hash
-    }
-    VOLUNTARIOS {
-        bigint id PK
-        varchar nome
-        varchar email UK
-        varchar matricula UK
-        varchar curso
-        varchar telefone
-        boolean ativo
-        varchar senha_hash
-    }
-    ATIVIDADES {
-        bigint id PK
-        varchar titulo
-        text descricao
-        date data
-        varchar local
-        decimal horas_previstas
-        varchar status
-    }
-    PARTICIPACOES {
-        bigint id PK
-        bigint voluntario_id FK
-        bigint atividade_id FK
-        decimal horas_realizadas
-        boolean presente
-        varchar observacao
-    }
-
-    VOLUNTARIOS ||--o{ PARTICIPACOES : participa
-    ATIVIDADES ||--o{ PARTICIPACOES : possui
-```
-
-A tabela `participacoes` representa um relacionamento N:N entre voluntários e atividades e possui atributos próprios, como horas realizadas, presença e observação.
-
-## Como executar
-
-### Pré-requisitos
-
-1. Java JDK 17 ou superior.
-2. Maven 3.9 ou superior.
-
-No Windows, confirme no PowerShell:
-
-```powershell
-java -version
-mvn -version
-```
-
-Execute na pasta do projeto:
-
-```powershell
-mvn spring-boot:run
-```
-
-Acesse:
-
-```text
-http://localhost:8080
-```
-
-O banco é criado automaticamente na pasta `data`. Para reiniciar os dados iniciais, feche o sistema e apague essa pasta.
-
-## Usuários iniciais
-
-### Coordenador
-
-- E-mail: `admin@extensao.com`
-- Senha: `admin123`
-
-### Voluntários
-
-A senha inicial de todos é `voluntario123`.
-
-- `tiago@extensao.com`
-- `pamela@extensao.com`
-- `josiane@extensao.com`
-
-## Critérios atendidos
-
-- **Implementação:** autenticação, dashboards, CRUDs, relacionamento N:N, validações, relatórios e cálculo de horas.
-- **Banco de Dados:** persistência relacional H2/JPA, chaves estrangeiras, restrições de unicidade e dados iniciais.
-- **Boas práticas/MVC:** separação por camadas, DTOs, serviços, repositórios, controllers, views, tratamento de exceções e nomes claros.
