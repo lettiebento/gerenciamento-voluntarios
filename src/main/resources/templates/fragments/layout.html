@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pt-BR" xmlns:th="http://www.thymeleaf.org">
+<body>
+<header th:fragment="header" class="topbar">
+    <div class="container nav-wrap">
+        <a th:href="${session.usuarioPerfil == 'COORDENADOR'} ? @{/coordenador} : @{/voluntario}" class="brand">
+            <span class="brand-mark">E+</span>
+            <span><strong>Extensão em Ação</strong><small>Gestão de voluntários</small></span>
+        </a>
+        <nav th:if="${session.usuarioPerfil == 'COORDENADOR'}" class="nav-links">
+            <a th:href="@{/coordenador}">Visão geral</a>
+            <a th:href="@{/coordenador/voluntarios}">Voluntários</a>
+            <a th:href="@{/coordenador/atividades}">Atividades</a>
+            <a th:href="@{/coordenador/participacoes}">Participações</a>
+            <a th:href="@{/coordenador/relatorios}">Relatórios</a>
+        </nav>
+        <div class="user-menu" th:if="${session.usuarioNome != null}">
+            <span th:text="${session.usuarioNome}"></span>
+            <form th:action="@{/logout}" method="post"><button class="btn btn-ghost btn-sm">Sair</button></form>
+        </div>
+    </div>
+</header>
+
+<div th:fragment="flash" class="container flash-area">
+    <div th:if="${sucesso}" class="alert alert-success" th:text="${sucesso}"></div>
+    <div th:if="${erro}" class="alert alert-error" th:text="${erro}"></div>
+</div>
+
+<footer th:fragment="footer" class="footer">
+    <div class="container">Desenvolvido por Leticia Bento</div>
+</footer>
+</body>
+</html>

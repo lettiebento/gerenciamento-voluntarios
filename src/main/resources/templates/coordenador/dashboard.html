@@ -1,0 +1,16 @@
+<!DOCTYPE html><html lang="pt-BR" xmlns:th="http://www.thymeleaf.org"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Painel do coordenador</title><link rel="stylesheet" th:href="@{/css/style.css}"></head><body>
+<header th:replace="~{fragments/layout :: header}"></header><div th:replace="~{fragments/layout :: flash}"></div>
+<main class="container page">
+<div class="page-heading"><div><span class="eyebrow">PAINEL DO COORDENADOR</span><h1>Visão geral do projeto</h1><p>Acompanhe os principais números e o progresso dos participantes.</p></div><a class="btn btn-primary" th:href="@{/coordenador/participacoes/nova}">+ Registrar participação</a></div>
+<section class="metrics-grid">
+<div class="metric-card"><span>Voluntários ativos</span><strong th:text="${totalVoluntarios}">0</strong><small>Pessoas aptas a participar</small></div>
+<div class="metric-card"><span>Atividades cadastradas</span><strong th:text="${totalAtividades}">0</strong><small><b th:text="${totalConcluidas}">0</b> concluídas</small></div>
+<div class="metric-card accent"><span>Horas de impacto</span><strong><span th:text="${#numbers.formatDecimal(totalHoras,1,1)}">0</span>h</strong><small>Carga horária confirmada</small></div>
+</section>
+<section class="content-grid">
+<div class="panel"><div class="panel-head"><div><h2>Progresso dos voluntários</h2><p>Participantes com maior acompanhamento recente.</p></div><a th:href="@{/coordenador/relatorios}">Ver relatório</a></div>
+<div class="progress-list"><div class="progress-row" th:each="r : ${resumos}"><div class="avatar" th:text="${#strings.substring(r.nome,0,1)}">A</div><div class="progress-main"><div><strong th:text="${r.nome}"></strong><span th:text="${r.matricula}"></span></div><div class="progress-track"><span th:style="${'width:' + r.percentual + '%'}"></span></div></div><b th:text="${#numbers.formatDecimal(r.horas,1,1)} + 'h'"></b></div></div>
+</div>
+<div class="panel quick-actions"><h2>Acesso rápido</h2><a th:href="@{/coordenador/voluntarios/novo}"><span>01</span><div><strong>Novo voluntário</strong><small>Cadastre um participante</small></div>→</a><a th:href="@{/coordenador/atividades/nova}"><span>02</span><div><strong>Nova atividade</strong><small>Planeje uma ação</small></div>→</a><a th:href="@{/coordenador/relatorios}"><span>03</span><div><strong>Relatório de horas</strong><small>Confira certificações</small></div>→</a></div>
+</section></main><footer th:replace="~{fragments/layout :: footer}"></footer></body></html>

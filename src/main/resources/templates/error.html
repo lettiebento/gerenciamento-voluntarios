@@ -1,0 +1,5 @@
+<!DOCTYPE html>
+<html lang="pt-BR" xmlns:th="http://www.thymeleaf.org">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Erro</title><link rel="stylesheet" th:href="@{/css/style.css}"></head>
+<body><main class="center-page"><div class="error-card"><span>!</span><h1>Página indisponível</h1><p th:text="${message ?: 'A página solicitada não foi encontrada ou ocorreu um erro.'}"></p><a class="btn btn-primary" th:href="@{/login}">Voltar ao início</a></div></main></body>
+</html>
