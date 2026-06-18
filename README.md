@@ -6,6 +6,11 @@ A aplicação foi desenvolvida em **Java com Spring Boot**, utilizando arquitetu
 
 ---
 
+## 👩‍💻 Autoria
+Aluna: Letícia Bento Pinto
+
+---
+
 ## 🎯 Objetivos
 
 - Centralizar o cadastro de voluntários e atividades de extensão.
@@ -126,7 +131,4 @@ src/main/resources
 ├── templates       # páginas Thymeleaf
 └── application.properties
 
----
 
-## 👩‍💻 Autoria
-Aluna: Letícia Bento Pinto
